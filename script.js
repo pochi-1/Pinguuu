@@ -1,5 +1,5 @@
 const gifStages = [
-   "https://media.tenor.com/EBV7OT7ACfwAAAAj/u-u-qua-qua-u-quaa.gif",    // 0 normal
+    "https://media.tenor.com/EBV7OT7ACfwAAAAj/u-u-qua-qua-u-quaa.gif",    // 0 normal
     "https://media1.tenor.com/m/uDugCXK4vI4AAAAd/chiikawa-hachiware.gif",  // 1 confused
     "https://media.tenor.com/f_rkpJbH1s8AAAAj/somsom1012.gif",             // 2 pleading
     "https://media.tenor.com/OGY9zdREsVAAAAAj/somsom1012.gif",             // 3 sad
@@ -10,13 +10,14 @@ const gifStages = [
 ]
 
 const noMessages = [
-    "Yes",
-    "Are you sure? 🤔",
-    "Bubby bati na tayo 🥺",
-    "Sungit mo naman 🥰",
-    "Sorry babyy 😢",
-    "NOOO BABYYY",
-    "Last chance! 😚",
+    "No",
+    "Are you positive? 🤔",
+    "Pookie please... 🥺",
+    "If you say no, I will be really sad...",
+    "I will be very sad... 😢",
+    "Please??? 💔",
+    "Don't do this to me...",
+    "Last chance! 😭",
     "You can't catch me anyway 😜"
 ]
 
@@ -90,25 +91,25 @@ function handleNoClick() {
     const msgIndex = Math.min(noClickCount, noMessages.length - 1)
     noBtn.textContent = noMessages[msgIndex]
 
-    // Grow the No button bigger each time
-    const currentSize = parseFloat(window.getComputedStyle(noBtn).fontSize)
-    noBtn.style.fontSize = `${currentSize * 1.35}px`
-    const padY = Math.min(18 + yesClickCount * 5, 60)
-    const padX = Math.min(45 + yesClickCount * 10, 120)
-    noBtn.style.padding = `${padY}px ${padX}px`
+    // Grow the Yes button bigger each time
+    const currentSize = parseFloat(window.getComputedStyle(yesBtn).fontSize)
+    yesBtn.style.fontSize = `${currentSize * 1.35}px`
+    const padY = Math.min(18 + noClickCount * 5, 60)
+    const padX = Math.min(45 + noClickCount * 10, 120)
+    yesBtn.style.padding = `${padY}px ${padX}px`
 
     // Shrink No button to contrast
-    if (yesClickCount >= 2) {
-        const yesSize = parseFloat(window.getComputedStyle(yesBtn).fontSize)
-        yesBtn.style.fontSize = `${Math.max(yesSize * 0.85, 10)}px`
+    if (noClickCount >= 2) {
+        const noSize = parseFloat(window.getComputedStyle(noBtn).fontSize)
+        noBtn.style.fontSize = `${Math.max(noSize * 0.85, 10)}px`
     }
 
     // Swap cat GIF through stages
-    const gifIndex = Math.min(yesClickCount, gifStages.length - 1)
+    const gifIndex = Math.min(noClickCount, gifStages.length - 1)
     swapGif(gifStages[gifIndex])
 
     // Runaway starts at click 5
-    if (yesClickCount >= 5 && !runawayEnabled) {
+    if (noClickCount >= 5 && !runawayEnabled) {
         enableRunaway()
         runawayEnabled = true
     }
@@ -123,8 +124,8 @@ function swapGif(src) {
 }
 
 function enableRunaway() {
-    yesBtn.addEventListener('mouseover', runAway)
-    yesBtn.addEventListener('touchstart', runAway, { passive: true })
+    noBtn.addEventListener('mouseover', runAway)
+    noBtn.addEventListener('touchstart', runAway, { passive: true })
 }
 
 function runAway() {
@@ -137,8 +138,9 @@ function runAway() {
     const randomX = Math.random() * maxX + margin / 2
     const randomY = Math.random() * maxY + margin / 2
 
-    yesBtn.style.position = 'fixed'
-    yesBtn.style.left = `${randomX}px`
-    yesBtn.style.top = `${randomY}px`
-    yesBtn.style.zIndex = '50'
+    noBtn.style.position = 'fixed'
+    noBtn.style.left = `${randomX}px`
+    noBtn.style.top = `${randomY}px`
+    noBtn.style.zIndex = '50'
+}
 }
