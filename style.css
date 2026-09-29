@@ -29,7 +29,7 @@ body {
 
 .hearts-bg::before,
 .hearts-bg::after {
-    content: '💕 💗 💖 💝 💓';
+    content: '💕 💗 💖 💝 💓','💕 💗 💖 💝 💓','💕 💗 💖 💝 💓';
     position: absolute;
     font-size: 1.5rem;
     opacity: 0.15;
@@ -42,11 +42,11 @@ body {
 .hearts-bg::after {
     animation-delay: 6s;
     left: 60%;
-    content: '💗 💕 💓 💖 💝';
+    content: '💗 💕 💓 💖 💝','💗 💕 💓 💖 💝','💗 💕 💓 💖 💝';
 }
 
 @keyframes floatHearts {
-    from { transform: translateY(0); opacity: 0.15; }
+    from { transform: translateY(0); opacity: 0.30; }
     to { transform: translateY(-110vh); opacity: 0; }
 }
 
@@ -54,7 +54,7 @@ body {
     position: relative;
     z-index: 1;
     text-align: center;
-    padding: 40px 20px;
+    padding: 50px 30px;
 }
 
 h1 {
@@ -63,7 +63,7 @@ h1 {
     font-weight: 900;
     margin-bottom: 20px;
     text-shadow: 2px 2px 0px rgba(214, 51, 132, 0.2);
-    animation: wiggle 2s ease-in-out infinite;
+    animation: wiggle 4s ease-in-out infinite;
 }
 
 @keyframes wiggle {
@@ -72,14 +72,14 @@ h1 {
 }
 
 .gif-container {
-    margin: 20px auto;
+    margin: 40px auto;
     display: flex;
     justify-content: center;
 }
 
 #cat-gif {
-    width: 200px;
-    height: 200px;
+    width: 350px;
+    height: 350px;
     object-fit: contain;
     filter: drop-shadow(0 8px 16px rgba(0,0,0,0.15));
     transition: opacity 0.3s ease;
@@ -87,7 +87,7 @@ h1 {
 
 .buttons {
     display: flex;
-    gap: 20px;
+    gap: 30px;
     justify-content: center;
     align-items: center;
     margin-top: 30px;
