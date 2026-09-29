@@ -97,18 +97,18 @@ function handleNoClick() {
     const padX = Math.min(45 + yesClickCount * 10, 120)
     noBtn.style.padding = `${padY}px ${padX}px`
 
-    // Shrink Yes button to contrast
+    // Shrink No button to contrast
     if (yesClickCount >= 2) {
         const yesSize = parseFloat(window.getComputedStyle(yesBtn).fontSize)
         yesBtn.style.fontSize = `${Math.max(yesSize * 0.85, 10)}px`
     }
 
     // Swap cat GIF through stages
-    const gifIndex = Math.min(noClickCount, gifStages.length - 1)
+    const gifIndex = Math.min(yesClickCount, gifStages.length - 1)
     swapGif(gifStages[gifIndex])
 
-    // Runaway starts at click 4
-    if (yesClickCount >= 4 && !runawayEnabled) {
+    // Runaway starts at click 5
+    if (yesClickCount >= 5 && !runawayEnabled) {
         enableRunaway()
         runawayEnabled = true
     }
