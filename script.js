@@ -143,4 +143,3 @@ function runAway() {
     noBtn.style.top = `${randomY}px`
     noBtn.style.zIndex = '50'
 }
-}
