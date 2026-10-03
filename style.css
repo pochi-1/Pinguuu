@@ -29,11 +29,11 @@ body {
 
 .hearts-bg::before,
 .hearts-bg::after {
-    content: '💕 💗 💖 💝 💓','💕 💗 💖 💝 💓','💕 💗 💖 💝 💓';
+    content: '💕 💗 💖 💝 💓';
     position: absolute;
     font-size: 1.5rem;
     opacity: 0.15;
-    animation: floatHearts 8s linear infinite;
+    animation: floatHearts 12s linear infinite;
     white-space: nowrap;
     top: 100%;
     left: 10%;
@@ -42,11 +42,11 @@ body {
 .hearts-bg::after {
     animation-delay: 6s;
     left: 60%;
-    content: '💗 💕 💓 💖 💝','💗 💕 💓 💖 💝','💗 💕 💓 💖 💝';
+    content: '💗 💕 💓 💖 💝';
 }
 
 @keyframes floatHearts {
-    from { transform: translateY(0); opacity: 0.30; }
+    from { transform: translateY(0); opacity: 0.15; }
     to { transform: translateY(-110vh); opacity: 0; }
 }
 
@@ -54,7 +54,7 @@ body {
     position: relative;
     z-index: 1;
     text-align: center;
-    padding: 50px 30px;
+    padding: 40px 20px;
 }
 
 h1 {
@@ -63,7 +63,7 @@ h1 {
     font-weight: 900;
     margin-bottom: 20px;
     text-shadow: 2px 2px 0px rgba(214, 51, 132, 0.2);
-    animation: wiggle 4s ease-in-out infinite;
+    animation: wiggle 2s ease-in-out infinite;
 }
 
 @keyframes wiggle {
@@ -72,7 +72,7 @@ h1 {
 }
 
 .gif-container {
-    margin: 40px auto;
+    margin: 20px auto;
     display: flex;
     justify-content: center;
 }
