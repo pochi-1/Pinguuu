@@ -49,6 +49,23 @@ body {
     left: 60%;
     content: '💗 💕 💓 💖 💝';
 }
+.hearts-bg::before,
+.hearts-bg::after {
+    content: '💕 💗 💖 💝 💓';
+    position: absolute;
+    font-size: 1.5rem;
+    opacity: 0.15;
+    animation: floatHearts 12s linear infinite;
+    white-space: nowrap;
+    top: 100%;
+    left: 10%;
+}
+
+.hearts-bg::after {
+    animation-delay: 6s;
+    left: 60%;
+    content: '💗 💕 💓 💖 💝';
+}
 
 @keyframes floatHearts {
     from { transform: translateY(0); opacity: 0.15; }
